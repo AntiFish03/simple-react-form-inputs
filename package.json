@@ -1,9 +1,9 @@
 {
-  "name": "react-form-inputs",
+  "name": "simple-react-form-inputs",
   "version": "1.0.0",
-  "description": "Simple React for Bootstrap",
+  "description": "Simple React form inputs using bootstrap support classes",
   "main": "src/index.js",
-  "repository": "git@github.com:AntiFish03/react-form-inputs.git",
+  "repository": "git@github.com:AntiFish03/simple-react-form-inputs.git",
   "author": "AntiFish03 <Joseph Cota>",
   "license": "MIT",
   "dependencies": {
