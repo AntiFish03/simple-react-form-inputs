@@ -1,6 +1,6 @@
 {
   "name": "simple-react-form-inputs",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Simple React form inputs using bootstrap support classes",
   "main": "dist/simple-react-form-inputs.js",
   "repository": "git@github.com:AntiFish03/simple-react-form-inputs.git",
@@ -36,10 +36,10 @@
   "scripts": {
     "storybook": "start-storybook -p 9001",
     "build-storybook": "build-storybook",
-    "install": "webpack"
+    "build": "webpack -p"
   },
   "peerDependencies": {
-    "bootstrap": "^3.3.7",
-    "font-awesome": "^4.7.0"
+    "bootstrap": "*",
+    "font-awesome": "*"
   }
 }

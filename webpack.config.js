@@ -1,4 +1,6 @@
-/* globals module, __dirname */
+/* globals module, __dirname, require */
+
+const path = require('path');
 
 module.exports = {
   entry: {
@@ -6,22 +8,20 @@ module.exports = {
   },
   output: {
     filename: 'simple-react-form-inputs.js',
-    path: __dirname + '/dist'
+    path: __dirname + '/dist',
+    libraryTarget: 'commonjs2',
+  },
+  externals: {
+    react: 'React',
+    classnames: 'classnames'
   },
   module: {
     loaders: [
       {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        loader: 'babel',
-        query: {
-          presets: ['es2015']
-        }
-      },
-      {
         test: /.jsx?$/,
-        loader: 'babel',
+        loader: 'babel-loader',
         exclude: /node_modules/,
+        include: path.join(__dirname, 'src'),
         query: {
           presets: ['es2015', 'react']
         }
