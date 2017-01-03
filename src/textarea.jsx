@@ -1,5 +1,5 @@
 import React, { PropTypes, Component } from 'react';
-import cx from 'classnames';
+import classnames from 'classnames';
 import generateUUID from './utils/generate-uuid';
 
 class TextArea extends Component {
@@ -17,9 +17,9 @@ class TextArea extends Component {
     this.state = {
       content,
       id: id || 'input-' + generateUUID(),
-      wrapperClassName: cx('form-group', wrapperClasses),
-      labelClassName: cx('form-control-label', labelClasses),
-      fieldClassName: cx('form-control', fieldClasses)
+      wrapperClassName: classnames('form-group', wrapperClasses),
+      labelClassName: classnames('form-control-label', labelClasses),
+      fieldClassName: classnames('form-control', fieldClasses)
     };
 
     this.updateControlFunc = this.updateControlFunc.bind(this);

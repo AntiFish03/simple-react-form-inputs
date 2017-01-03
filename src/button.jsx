@@ -1,5 +1,5 @@
 import React, { PropTypes, Component } from 'react';
-import cx from 'classnames';
+import classnames from 'classnames';
 
 class Button extends Component {
   constructor(props) {
@@ -12,8 +12,8 @@ class Button extends Component {
     } = props;
 
     this.state = {
-      wrapperClassName: cx('form-group', wrapperClasses),
-      fieldClassName: cx('btn', typeClass, fieldClasses)
+      wrapperClassName: classnames('form-group', wrapperClasses),
+      fieldClassName: classnames('btn', typeClass, fieldClasses)
     };
   }
 

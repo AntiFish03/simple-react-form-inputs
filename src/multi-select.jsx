@@ -1,5 +1,5 @@
 import React, { PropTypes, Component } from 'react';
-import cx from 'classnames';
+import classnames from 'classnames';
 
 class MultiSelect extends Component {
   constructor(props) {
@@ -15,9 +15,9 @@ class MultiSelect extends Component {
 
     this.state = {
       selectedOptions,
-      wrapperClassName: cx('list-group', wrapperClasses),
-      itemClassName: cx('list-group-item', itemClasses),
-      labelClassName: cx('form-control-label', labelClasses),
+      wrapperClassName: classnames('list-group', wrapperClasses),
+      itemClassName: classnames('list-group-item', itemClasses),
+      labelClassName: classnames('form-control-label', labelClasses),
       options: options.map((item) => {
         item.active = selectedOptions.includes(item.value);
         return item;
@@ -51,7 +51,7 @@ class MultiSelect extends Component {
 
     return options.map(function (item) {
 
-      let classes = cx(
+      let classes = classnames(
         itemClassName,
         { active: item.active }
       );
@@ -126,7 +126,7 @@ class MultiSelect extends Component {
       }
 
       return (
-        <i className={cx(activeIcon)} />
+        <i className={classnames(activeIcon)} />
       );
     }
   }
@@ -167,7 +167,7 @@ MultiSelect.propTypes = {
 };
 
 MultiSelect.defaultProps = {
-  activeIcon: (<i className={cx('fa', 'fa-check', 'pull-right')} />),
+  activeIcon: (<i className={classnames('fa', 'fa-check', 'pull-right')} />),
   selectedOptions: [],
   options: [],
   titleSeparator: ': '

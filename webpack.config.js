@@ -12,7 +12,7 @@ module.exports = {
     libraryTarget: 'commonjs2',
   },
   externals: {
-    react: 'React',
+    react: 'react',
     classnames: 'classnames'
   },
   module: {

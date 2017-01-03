@@ -1,5 +1,5 @@
 import React, { PropTypes, Component } from 'react';
-import cx from 'classnames';
+import classnames from 'classnames';
 import generateUUID from './utils/generate-uuid';
 
 class Select extends Component {
@@ -19,9 +19,9 @@ class Select extends Component {
       name,
       selectedOption,
       id: id || 'input-' + generateUUID(),
-      fieldClassName: cx('form-control', fieldClasses),
-      labelClassName: cx('form-control-label', labelClasses),
-      wrapperClassName: cx('form-group', wrapperClasses)
+      fieldClassName: classnames('form-control', fieldClasses),
+      labelClassName: classnames('form-control-label', labelClasses),
+      wrapperClassName: classnames('form-group', wrapperClasses)
     };
 
     this.updateControlFunc = this.updateControlFunc.bind(this);
@@ -124,10 +124,10 @@ class Select extends Component {
 
     if (iconDecorator) {
       return (
-        <div className={cx(containerClasses)}>
+        <div className={classnames(containerClasses)}>
           {field}
           {typeof(iconDecorator) === 'string' &&
-            (<i className={cx(iconClassPrefix, iconDecorator)} />)
+            (<i className={classnames(iconClassPrefix, iconDecorator)} />)
           }
           {typeof(iconDecorator) === 'object' &&
             (iconDecorator)
