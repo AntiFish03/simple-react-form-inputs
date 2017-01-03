@@ -1,5 +1,5 @@
 {
-  "name": "form-inputs",
+  "name": "react-form-inputs",
   "version": "1.0.0",
   "description": "Simple React for Bootstrap",
   "main": "src/index.js",
