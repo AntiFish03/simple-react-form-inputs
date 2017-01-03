@@ -1,0 +1,68 @@
+/* This is intended as a sample */
+.input-icon {
+  position: relative;
+}
+
+.input-icon select {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+      -ms-appearance: none;
+       -o-appearance: none;
+  background : none;
+  padding-right: 35px;
+}
+
+.input-icon select::-ms-expand {
+  /* As always Microsoft IE / Edge are special */
+    display: none;
+}
+
+.input-icon.select-wrapper:after {
+  /* DO NOT CHANGE THE CONTENT TO UNICODE NOTATION */
+    content:'◄ ►';
+  /* DO NOT CHANGE THE CONTENT TO UNICODE NOTATION */
+    font-size: 8px;
+    color: #333;
+    -webkit-transform:rotate(90deg);
+    -moz-transform:rotate(90deg);
+    -ms-transform:rotate(90deg);
+    transform:rotate(90deg);
+    right:-3px;
+    top:9px;
+    padding:0 6px 5px;
+    position:absolute;
+    pointer-events:none;
+}
+
+.input-icon i {
+  position: absolute;
+  top: auto;
+  bottom: 0;
+  margin-bottom: 10px;
+  padding: 0 10px;
+  font-size: 16px;
+  color: #999;
+}
+
+.input-icon.icon-left i {
+  left: 0;
+}
+
+.input-icon.icon-right i {
+  right: 0;
+}
+.input-icon.select-wrapper.icon-right i {
+  right: 10px;
+}
+
+.input-icon.icon-left input,
+.input-icon.icon-left select {
+  padding-left: 35px;
+}
+
+.input-icon.icon-right input {
+  padding-right: 35px;
+}
+.input-icon.icon-right select {
+  padding-right: 51px;
+}
