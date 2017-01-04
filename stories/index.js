@@ -436,6 +436,7 @@ storiesOf('Button', module)
           <Button
             label="Submit"
             type="submit"
+            controlFunc={action('click')}
           />
         </div>
       </div>
@@ -450,6 +451,7 @@ storiesOf('Button', module)
             label="Submit"
             type="submit"
             fieldClasses={['btn-block']}
+            controlFunc={action('click')}
           />
         </div>
       </div>

@@ -106,13 +106,16 @@ class MultiSelect extends Component {
 
     if (item.active) {
       rtn[name] = selectedOptions.filter((opt) => {
+        item.active = false;
         return opt !== item.value;
       });
     } else {
+      item.active = true;
       rtn[name] = selectedOptions.concat(item.value);
     }
 
     controlFunc(rtn);
+    this.setState({selectedOptions: rtn[name]});
   }
 
   activeIcon(active) {

@@ -122,6 +122,8 @@ class SimpleInput extends Component {
 
     rtn[name] = evt.target.value;
     controlFunc(rtn);
+
+    this.setState({content: evt.target.value});
   }
 }
 

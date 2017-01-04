@@ -55,6 +55,8 @@ class Select extends Component {
 
     rtn[name] = evt.target.value;
     controlFunc(rtn);
+
+    this.setState({selectedOption: evt.target.value});
   }
 
   generateTitle() {
