@@ -23,6 +23,8 @@ class SimpleInput extends Component {
     };
 
     this.updateControlFunc = this.updateControlFunc.bind(this);
+    this.onBlur = this.onBlur.bind(this);
+    this.onFocus = this.onFocus.bind(this);
   }
   render() {
     const {
@@ -67,7 +69,10 @@ class SimpleInput extends Component {
         type={inputType}
         value={content}
         onChange={this.updateControlFunc}
-        placeholder={placeholder} />
+        placeholder={placeholder}
+        onFocus={this.onFocus}
+        onBlur={this.onBlur}
+      />
     ),
       containerClasses = [
         'input-icon',
@@ -125,6 +130,9 @@ class SimpleInput extends Component {
 
     this.setState({content: evt.target.value});
   }
+
+  onFocus() {}
+  onBlur() {}
 }
 
 SimpleInput.propTypes = {

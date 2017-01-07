@@ -3,7 +3,7 @@ import React from 'react';
 import { storiesOf } from '@kadira/storybook';
 import { action } from '@kadira/storybook-addon-actions';
 
-import { SimpleInput, Select, MultiSelect, TextArea, Button } from '../src';
+import { SimpleInput, Select, MultiSelect, TextArea, Button, AutoComplete } from '../src';
 
 import 'style-loader!css-loader!less-loader!bootstrap/less/bootstrap.less';
 import 'style-loader!css-loader!less-loader!font-awesome/less/font-awesome.less';
@@ -30,6 +30,41 @@ const multiselectOptions = [
   {label: 'Pickles', value: 'pic'},
   {label: 'Onions', value: 'ons'},
   {label: 'Jalepenos', value: 'jal'}
+];
+
+const autoCompleteOptions = [
+  {
+    'title': 'Dallas, TX',
+    'category': 'city'
+  }, {
+    'title': 'DAL - Love Field, Dallas, TX',
+    'category': 'airport'
+  }, {
+    'title': 'Danvers, MA',
+    'category': 'city'
+  }, {
+    'title': 'Darien, IL',
+    'category': 'city'
+  }
+];
+
+const otherAutoCompleteOptions = [
+  {
+    title: 'Queen',
+    category: 'queen'
+  },
+  {
+    title: 'Pawn',
+    category: 'pawn'
+  },
+  {
+    title: 'Knight',
+    category: 'knight'
+  },
+  {
+    title: 'Bishop',
+    category: 'bishop'
+  }
 ];
 
 storiesOf('Simple Input', module)
@@ -467,6 +502,69 @@ storiesOf('Button', module)
             label="Submit"
             type="submit"
             typeClass="btn-danger"
+          />
+        </div>
+      </div>
+    ),
+    {inline: true}
+  );
+
+storiesOf('Auto Complete', module)
+  .addWithInfo('default',
+    'This does not include a suggestion engine only the DOM implementation',
+    () => (
+      <div className="container">
+        <div className="col-xs-12 col-md-4">
+          <AutoComplete
+            inputType="text"
+            title="Input 1"
+            name="input-name"
+            controlFunc={action('change')}
+            content=""
+            suggestions={[]}
+          />
+        </div>
+      </div>
+    ),
+    {inline: true}
+  )
+  .addWithInfo('with suggestions',
+    'This does not include a suggestion engine only the DOM implementation',
+    () => (
+      <div className="container">
+        <div className="col-xs-12 col-md-4">
+          <AutoComplete
+            inputType="text"
+            title="Input 1"
+            name="input-name"
+            controlFunc={action('change')}
+            content=""
+            suggestions={autoCompleteOptions}
+          />
+        </div>
+      </div>
+    ),
+    {inline: true}
+  )
+  .addWithInfo('with custom category icon mapping',
+    'This does not include a suggestion engine only the DOM implementation',
+    () => (
+      <div className="container">
+        <div className="col-xs-12 col-md-4">
+          <AutoComplete
+            inputType="text"
+            title="Input 1"
+            name="input-name"
+            controlFunc={action('change')}
+            content=""
+            suggestions={otherAutoCompleteOptions}
+            categoryIconMapping={{
+              knight: 'glyphicon-knight',
+              queen: 'glyphicon-queen',
+              bishop: 'glyphicon-bishop'
+            }}
+            defaultSuggestionIcon="glyphicon-pawn"
+            iconClassPrefix="glyphicon"
           />
         </div>
       </div>
