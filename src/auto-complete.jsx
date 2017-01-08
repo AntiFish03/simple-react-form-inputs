@@ -11,14 +11,18 @@ class AutoComplete extends SimpleInput {
       suggestions
     } = props;
 
-    this.state = _.merge(this.state, {
+    this.state = _.merge({},this.state, {
       suggestions
     });
 
     this.handleSuggestionClick = this.handleSuggestionClick.bind(this);
 
-    this.onBlur = _.debounce(this.onBlur, 200);
     this.onBlur = this.onBlur.bind(this);
+    this.onBlur = _.debounce(this.onBlur, 200);
+  }
+
+  componentWillUnmount() {
+    this.onBlur.cancel();
   }
 
   componentWillReceiveProps(nextProps) {
@@ -119,14 +123,14 @@ class AutoComplete extends SimpleInput {
   }
 }
 
-AutoComplete.propTypes = _.merge(SimpleInput.propTypes, {
+AutoComplete.propTypes = _.merge({}, SimpleInput.propTypes, {
   suggestions: PropTypes.array.isRequired,
   inputType: PropTypes.oneOf(['text']).isRequired,
   fieldFocused: PropTypes.bool,
   menuOpen: PropTypes.bool
 });
 
-AutoComplete.defaultProps = _.merge(SimpleInput.defaultProps, {
+AutoComplete.defaultProps = _.merge({}, SimpleInput.defaultProps, {
   suggestions: [],
   inputType: 'text',
   fieldFocused: false,
