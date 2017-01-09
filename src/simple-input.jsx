@@ -58,7 +58,8 @@ class SimpleInput extends Component {
       placeholder,
       iconDecorator,
       iconPosition,
-      iconClassPrefix
+      iconClassPrefix,
+      autocomplete
     } = this.props;
 
     const field = (
@@ -72,6 +73,7 @@ class SimpleInput extends Component {
         placeholder={placeholder}
         onFocus={this.onFocus}
         onBlur={this.onBlur}
+        autoComplete={autocomplete}
       />
     ),
       containerClasses = [
@@ -180,7 +182,8 @@ SimpleInput.propTypes = {
     PropTypes.node
   ]),
   iconClassPrefix: PropTypes.string,
-  id: PropTypes.string
+  id: PropTypes.string,
+  autocomplete: PropTypes.bool
 };
 
 SimpleInput.defaultProps = {
@@ -190,7 +193,8 @@ SimpleInput.defaultProps = {
   id: null,
   content: '',
   titleMessage: null,
-  titleSeparator: ': '
+  titleSeparator: ': ',
+  autocomplete: true
 };
 
 export default SimpleInput;

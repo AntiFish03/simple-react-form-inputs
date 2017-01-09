@@ -141,7 +141,8 @@ AutoComplete.defaultProps = _.merge({}, SimpleInput.defaultProps, {
     airport: 'fa-plane',
     location: 'fa-location-arrow',
   },
-  defaultSuggestionIcon: 'fa-map-marker'
+  defaultSuggestionIcon: 'fa-map-marker',
+  autocomplete: false
 });
 
 export default AutoComplete;
