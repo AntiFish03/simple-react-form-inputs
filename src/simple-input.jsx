@@ -183,7 +183,7 @@ SimpleInput.propTypes = {
   ]),
   iconClassPrefix: PropTypes.string,
   id: PropTypes.string,
-  autocomplete: PropTypes.bool
+  autocomplete: PropTypes.oneOf(['on', 'off'])
 };
 
 SimpleInput.defaultProps = {
@@ -194,7 +194,7 @@ SimpleInput.defaultProps = {
   content: '',
   titleMessage: null,
   titleSeparator: ': ',
-  autocomplete: true
+  autocomplete: 'on'
 };
 
 export default SimpleInput;

@@ -142,7 +142,7 @@ AutoComplete.defaultProps = _.merge({}, SimpleInput.defaultProps, {
     location: 'fa-location-arrow',
   },
   defaultSuggestionIcon: 'fa-map-marker',
-  autocomplete: false
+  autocomplete: 'off'
 });
 
 export default AutoComplete;
