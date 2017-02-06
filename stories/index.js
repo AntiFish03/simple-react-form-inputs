@@ -507,6 +507,22 @@ storiesOf('Button', module)
       </div>
     ),
     {inline: true}
+  )
+  .addWithInfo('with custom id',
+    '',
+    () => (
+      <div className="container">
+        <div className="col-xs-12 col-md-4">
+          <Button
+            label="Submit"
+            type="submit"
+            typeClass="btn-danger"
+            id="customId"
+          />
+        </div>
+      </div>
+    ),
+    {inline: true}
   );
 
 storiesOf('Auto Complete', module)

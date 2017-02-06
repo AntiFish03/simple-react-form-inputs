@@ -25,7 +25,8 @@ class Button extends Component {
 
     const {
       type,
-      controlFunc
+      controlFunc,
+      id
     } = this.props;
 
     return (
@@ -34,6 +35,7 @@ class Button extends Component {
           className={fieldClassName}
           type={type}
           onClick={controlFunc}
+          id={id}
         >
         { this.generateLabel() }
         </button>
@@ -71,13 +73,15 @@ Button.propTypes = {
   ]).isRequired,
   controlFunc: PropTypes.func,
   typeClass: PropTypes.string,
-  type: PropTypes.string
+  type: PropTypes.string,
+  id: PropTypes.string
 };
 
 Button.defaultProps = {
   typeClass: 'btn-primary',
   type: null,
-  controlFunc: function () {}
+  controlFunc: function () {},
+  id: null
 };
 
 export default Button;
