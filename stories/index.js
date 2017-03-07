@@ -8,6 +8,7 @@ import { SimpleInput, Select, MultiSelect, TextArea, Button, AutoComplete } from
 import 'style-loader!css-loader!less-loader!bootstrap/less/bootstrap.less';
 import 'style-loader!css-loader!less-loader!font-awesome/less/font-awesome.less';
 import 'style-loader!css-loader!../src/css/input-icons.css';
+import 'style-loader!css-loader!../src/css/auto-complete.css';
 
 const errors = ['cannot be blank'];
 const selectOptions = [
@@ -34,17 +35,125 @@ const multiselectOptions = [
 
 const autoCompleteOptions = [
   {
-    'title': 'Dallas, TX',
-    'category': 'city'
+    title: 'Dallas, TX',
+    category: 'city'
   }, {
-    'title': 'DAL - Love Field, Dallas, TX',
-    'category': 'airport'
+    title: 'DAL - Love Field, Dallas, TX',
+    category: 'airport'
   }, {
-    'title': 'Danvers, MA',
-    'category': 'city'
+    title: 'DBO - Dubbo, Dubbo, AU',
+    category: 'airport'
   }, {
-    'title': 'Darien, IL',
-    'category': 'city'
+    title: 'DBQ - Dubuque Municipal Airport, Dubuque, IA',
+    category: 'airport'
+  }, {
+    title: 'DCA - Washington National Airport, Washington, DC',
+    category: 'airport'
+  }, {
+    title: 'DCF - Cane Field, Dominica, DM',
+    category: 'airport'
+  }, {
+    title: 'DDC - Dodge City Municipal, Dodge City, KS',
+    category: 'airport'
+  }, {
+    title: 'Denver, CO',
+    category: 'city'
+  }, {
+    title: 'DEN - Denver International, Denver, CO',
+    category: 'airport'
+  }, {
+    title: 'DFW - Dallas Ft Worth International, Dallas/Ft Worth, TX',
+    category: 'airport'
+  }, {
+    title: 'DGA - Dangriga, Dangriga, BZ',
+    category: 'airport'
+  }, {
+    title: 'DGO - Gen Guadalupe Victoria, Durango, MX',
+    category: 'airport'
+  }, {
+    title: 'Dhahran, SA',
+    category: 'city'
+  }, {
+    title: 'Dhaka, BD',
+    category: 'city'
+  }, {
+    title: 'Diamond Bar, CA',
+    category: 'city'
+  }, {
+    title: 'Dickinson, TX',
+    category: 'city'
+  }, {
+    title: 'Djerba Midoun, TN',
+    category: 'city'
+  }, {
+    title: 'Djerba, TN',
+    category: 'city'
+  }, {
+    title: 'DKR - Yoff, Dakar, SN',
+    category: 'airport'
+  }, {
+    title: 'Dlephi, GR',
+    category: 'city'
+  }, {
+    title: 'DLA - Douala, Douala, CM',
+    category: 'airport'
+  }, {
+    title: 'DME - Domodedovo, Moscow, RU',
+    category: 'airport'
+  }, {
+    title: 'Dnepropetrovsk, UA',
+    category: 'city'
+  }, {
+    title: 'Dnipro, UA',
+    category: 'city'
+  }, {
+    title: 'Downers Grove, IL',
+    category: 'city'
+  }, {
+    title: 'Docklands, GB',
+    category: 'city'
+  }, {
+    title: 'DPL - Dipolog, Dipolog, PH',
+    category: 'airport'
+  }, {
+    title: 'DPO - Devonport, Devonport, AU',
+    category: 'airport'
+  }, {
+    title: 'Draveil, FR',
+    category: 'city'
+  }, {
+    title: 'Dragor De, DK',
+    category: 'city'
+  }, {
+    title: 'DTW - Detroit Metropolitan Airport, Detroit, MI',
+    category: 'airport'
+  }, {
+    title: 'Dt Tilburg Netherlan, NL',
+    category: 'city'
+  }, {
+    title: 'Dubai, AE',
+    category: 'city'
+  }, {
+    title: 'Dublin, CA',
+    category: 'city'
+  }, {
+    title: 'DVO - Mati, Davao, PH',
+    category: 'airport'
+  }, {
+    title: 'Dwarka, IN',
+    category: 'city'
+  }, {
+    title: 'Dwight, IL',
+    category: 'city'
+  }, {
+    title: 'DXB - Dubai International Airport, Dubai, AE',
+    category: 'airport'
+  }, {
+    title: 'Dyce Aberdeen, GB',
+    category: 'city'
+  }, {
+    title: 'Dyersburg, TN',
+    category: 'city'
   }
 ];
 

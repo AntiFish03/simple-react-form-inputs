@@ -25,6 +25,7 @@ class SimpleInput extends Component {
     this.updateControlFunc = this.updateControlFunc.bind(this);
     this.onBlur = this.onBlur.bind(this);
     this.onFocus = this.onFocus.bind(this);
+    this.onKeyDown = this.onKeyDown.bind(this);
   }
   render() {
     const {
@@ -73,6 +74,7 @@ class SimpleInput extends Component {
         placeholder={placeholder}
         onFocus={this.onFocus}
         onBlur={this.onBlur}
+        onKeyDown={this.onKeyDown}
         autoComplete={autocomplete}
       />
     ),
@@ -135,6 +137,7 @@ class SimpleInput extends Component {
 
   onFocus() {}
   onBlur() {}
+  onKeyDown() {}
 }
 
 SimpleInput.propTypes = {

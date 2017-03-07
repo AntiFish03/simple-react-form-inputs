@@ -12,7 +12,8 @@ class AutoComplete extends SimpleInput {
     } = props;
 
     this.state = _.merge({},this.state, {
-      suggestions
+      suggestions,
+      cursor: 0
     });
 
     this.handleSuggestionClick = this.handleSuggestionClick.bind(this);
@@ -60,7 +61,8 @@ class AutoComplete extends SimpleInput {
   generateSuggestions() {
     const {
       suggestions,
-      fieldFocused
+      fieldFocused,
+      cursor
     } = this.state;
 
     const {
@@ -75,11 +77,12 @@ class AutoComplete extends SimpleInput {
 
     if (suggestions.length > 0 && fieldFocused) {
       return (
-        <ul className={classnames('dropdown-menu', 'col-xs-12')}>
+        <ul ref="suggestions" className={classnames('dropdown-menu', 'col-xs-12')}>
           {suggestions.map((item, i) => (
             <li
               key={i}
               onClick={handleSuggestionClick.bind(null, item)}
+              className={classnames({active: i === cursor })}
             >
               {Object.keys(categoryIconMapping).includes(item.category) && (
                 <i className={
@@ -120,6 +123,40 @@ class AutoComplete extends SimpleInput {
     controlFunc(rtn);
 
     this.setState({content: item.title});
+  }
+
+  onKeyDown(evt) {
+    const {cursor, suggestions} = this.state;
+    this.onBlur.cancel();
+
+    switch(evt.keyCode) {
+    case 38: // Up
+      if(cursor > 0) {
+        this.setState( prevState => ({
+          cursor: prevState.cursor - 1
+        }));
+        this.refs.suggestions.scrollTop -= this.refs.suggestions.childNodes[this.state.cursor].scrollHeight;
+      }
+      break;
+    case 40: // Down
+      if (cursor < suggestions.length) {
+        this.setState( prevState => ({
+          cursor: prevState.cursor + 1
+        }));
+
+        this.refs.suggestions.scrollTop += this.refs.suggestions.childNodes[this.state.cursor].scrollHeight;
+      }
+      break;
+
+    case 13: // Fall-through
+    case 9: // Fall-through
+      this.handleSuggestionClick(suggestions[cursor]);
+      break;
+
+    case 27:
+      this.onBlur();
+      break;
+    }
   }
 }
 

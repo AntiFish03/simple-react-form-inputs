@@ -1,0 +1,22 @@
+.form-group .dropdown-menu {
+  max-height: 250px;
+  overflow: hidden;
+  overflow-y: auto;
+}
+.form-group .dropdown-menu > li {
+  display: block;
+  padding: 3px 20px;
+  clear: both;
+  font-weight: 400;
+  line-height: 1.42857143;
+  color: #333;
+}
+.form-group .dropdown-menu > li:hover,
+.form-group .dropdown-menu > li.active {
+  color: #262626;
+  text-decoration: none;
+  background-color: #f5f5f5;
+}
+.form-group .dropdown-menu > li .fa {
+  padding-right: 10px;
+}
