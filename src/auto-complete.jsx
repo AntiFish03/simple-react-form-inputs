@@ -29,7 +29,8 @@ class AutoComplete extends SimpleInput {
   componentWillReceiveProps(nextProps) {
     if (nextProps.suggestions !== this.state.suggestions) {
       this.setState({
-        suggestions: nextProps.suggestions
+        suggestions: nextProps.suggestions,
+        cursor: 0
       });
     }
   }
