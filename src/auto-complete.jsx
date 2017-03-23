@@ -114,16 +114,18 @@ class AutoComplete extends SimpleInput {
   }
 
   handleSuggestionClick(item) {
-    const {
-      name,
-      controlFunc
-    } = this.props;
-    let rtn = {};
+    if (item && item.title) {
+      const {
+        name,
+        controlFunc
+      } = this.props;
+      let rtn = {};
 
-    rtn[name] = item.title;
-    controlFunc(rtn);
+      rtn[name] = item.title;
+      controlFunc(rtn);
 
-    this.setState({content: item.title});
+      this.setState({content: item.title});
+    }
   }
 
   onKeyDown(evt) {
