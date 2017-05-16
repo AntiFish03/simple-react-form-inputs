@@ -425,6 +425,26 @@ storiesOf('Simple Input', module)
       </div>
     ),
     {inline: true}
+  )
+  .addWithInfo('additional data props',
+    () =>(
+      <div className="container">
+        <div className="col-xs-12 col-md-4">
+          <SimpleInput
+            inputType="text"
+            title="Input 1"
+            name="input-name"
+            controlFunc={action('change')}
+            content=""
+            id="hello-world"
+            dataProps={ {
+              'data-position': 'top'
+            } }
+          />
+        </div>
+      </div>
+    ),
+    {inline: true}
   );
 
 storiesOf('Select', module)
@@ -516,7 +536,28 @@ storiesOf('Select', module)
       </div>
     ),
     {inline: true}
+  )
+  .addWithInfo('additional data props',
+    '',
+    () => (
+      <div className="container">
+        <div className="col-xs-12 col-md-4">
+          <Select
+            name="state"
+            options={selectOptions}
+            controlFunc={action('change')}
+            title="State"
+            dataProps={ {
+              'data-position': 'top'
+            } }
+          />
+        </div>
+      </div>
+    ),
+    {inline: true}
   );
+
+
 
 storiesOf('Multi Select', module)
   .addWithInfo('default',
@@ -564,6 +605,23 @@ storiesOf('TextArea', module)
             controlFunc={action('change')}
             content=""
             name="comments"
+          />
+        </div>
+      </div>
+    )
+    , {inline: true}
+  )
+  .addWithInfo('with additional data props',
+    '',
+    () => (
+      <div className="container">
+        <div className="col-xs-12 col-md-4">
+          <TextArea
+            title="Comments"
+            controlFunc={action('change')}
+            content=""
+            name="comments"
+            dataProps={{'data-position': 'top'}}
           />
         </div>
       </div>
@@ -627,6 +685,21 @@ storiesOf('Button', module)
             type="submit"
             typeClass="btn-danger"
             id="customId"
+          />
+        </div>
+      </div>
+    ),
+    {inline: true}
+  )
+  .addWithInfo('with additional data props',
+    '',
+    () => (
+      <div className="container">
+        <div className="col-xs-12 col-md-4">
+          <Button
+            label="Submit"
+            type="submit"
+            dataProps={{'data-position': 'top'}}
           />
         </div>
       </div>

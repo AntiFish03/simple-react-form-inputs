@@ -93,7 +93,8 @@ class Select extends Component {
       options,
       iconDecorator,
       iconPosition,
-      iconClassPrefix
+      iconClassPrefix,
+      dataProps
     } = this.props;
 
     const field = (<select
@@ -102,6 +103,7 @@ class Select extends Component {
       value={selectedOption}
       onChange={this.updateControlFunc}
       className={fieldClassName}
+      {...dataProps}
       >
       { this.placeholder() }
       {options.map(function (opt) {
@@ -201,7 +203,8 @@ Select.propTypes = {
     PropTypes.string,
     PropTypes.node
   ]),
-  iconClassPrefix: PropTypes.string
+  iconClassPrefix: PropTypes.string,
+  dataProps: PropTypes.object
 };
 
 Select.defaultProps = {
@@ -210,6 +213,7 @@ Select.defaultProps = {
   iconPosition: 'left',
   iconDecorator: null,
   iconClassPrefix: 'fa',
+  dataProps: {}
 };
 
 export default Select;

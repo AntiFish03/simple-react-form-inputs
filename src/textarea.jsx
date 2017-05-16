@@ -28,7 +28,8 @@ class TextArea extends Component {
   render() {
     const {
       placeholder,
-      name
+      name,
+      dataProps
     } = this.props;
 
     const {
@@ -54,6 +55,7 @@ class TextArea extends Component {
           name={name}
           onChange={this.updateControlFunc}
           value={content}
+          {...dataProps}
         />
       </div>
     );
@@ -124,11 +126,13 @@ TextArea.propTypes = {
     PropTypes.array,
     PropTypes.string
   ]),
-  id: PropTypes.string
+  id: PropTypes.string,
+  dataProps: PropTypes.object
 };
 
 TextArea.defaultProps = {
-  content: ''
+  content: '',
+  dataProps: {}
 };
 
 export default TextArea;
