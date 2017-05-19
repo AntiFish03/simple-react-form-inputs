@@ -20,6 +20,7 @@ class AutoComplete extends SimpleInput {
 
     this.onBlur = this.onBlur.bind(this);
     this.onBlur = _.debounce(this.onBlur, 200);
+    this.onFocus = this.onFocus.bind(this);
   }
 
   componentWillUnmount() {
