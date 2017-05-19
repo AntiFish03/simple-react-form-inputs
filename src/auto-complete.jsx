@@ -107,6 +107,7 @@ class AutoComplete extends SimpleInput {
   }
 
   onFocus() {
+    this.onBlur.cancel();
     this.setState({fieldFocused: true});
   }
 
