@@ -44,6 +44,14 @@ class AutoComplete extends SimpleInput {
       fieldFocused
     } = this.state;
 
+    const {
+      dropDownOpenClass
+    } = this.props;
+
+    let dropDownClasses = {};
+
+    dropDownClasses[dropDownOpenClass] = fieldFocused;
+
     return (
       <div className={wrapperClassName}>
         <label
@@ -52,7 +60,7 @@ class AutoComplete extends SimpleInput {
         >
           {this.generateTitle()}
         </label>
-        <div className={classnames('dropdown', {'open': fieldFocused})}>
+        <div className={classnames('dropdown', dropDownClasses)}>
           {this.generateInput()}
           {this.generateSuggestions()}
         </div>
@@ -169,7 +177,8 @@ AutoComplete.propTypes = _.merge({}, SimpleInput.propTypes, {
   suggestions: PropTypes.array.isRequired,
   inputType: PropTypes.oneOf(['text']).isRequired,
   fieldFocused: PropTypes.bool,
-  menuOpen: PropTypes.bool
+  menuOpen: PropTypes.bool,
+  dropDownOpenClass: PropTypes.string
 });
 
 AutoComplete.defaultProps = _.merge({}, SimpleInput.defaultProps, {
@@ -184,7 +193,8 @@ AutoComplete.defaultProps = _.merge({}, SimpleInput.defaultProps, {
     location: 'fa-location-arrow',
   },
   defaultSuggestionIcon: 'fa-map-marker',
-  autocomplete: 'off'
+  autocomplete: 'off',
+  dropDownOpenClass: 'open'
 });
 
 export default AutoComplete;
