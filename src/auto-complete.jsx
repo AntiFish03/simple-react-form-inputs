@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import SimpleInput from './simple-input';
 import _ from 'lodash';
 import classnames from 'classnames';
