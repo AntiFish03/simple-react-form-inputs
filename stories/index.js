@@ -1,14 +1,14 @@
 /* globals module */
 import React from 'react';
-import { storiesOf } from '@kadira/storybook';
-import { action } from '@kadira/storybook-addon-actions';
+import { storiesOf } from '@storybook/react';
+import { action } from '@storybook/addon-actions';
 
 import { SimpleInput, Select, MultiSelect, TextArea, Button, AutoComplete } from '../src';
 
-import 'style-loader!css-loader!less-loader!bootstrap/less/bootstrap.less';
-import 'style-loader!css-loader!less-loader!font-awesome/less/font-awesome.less';
-import 'style-loader!css-loader!../src/css/input-icons.css';
-import 'style-loader!css-loader!../src/css/auto-complete.css';
+import 'bootstrap/less/bootstrap.less';
+import 'font-awesome/less/font-awesome.less';
+import '../src/css/input-icons.css';
+import '../src/css/auto-complete.css';
 
 const errors = ['cannot be blank'];
 const selectOptions = [

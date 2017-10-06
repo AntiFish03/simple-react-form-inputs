@@ -5,51 +5,56 @@
 
 // IMPORTANT
 // When you add this file, we won't add the default configurations which is similar
-// to "React Create App". This only has babel loader to load JavaScript.
+// to 'React Create App'. This only has babel loader to load JavaScript.
 
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const StyleSheetExtract = new ExtractTextPlugin('[name].css');
-const path = require('path');
 
 module.exports = {
   plugins: [
     StyleSheetExtract
   ],
   module: {
-    loaders: [
+    rules: [
       {
-        test: /\.less$/,
-        loader: StyleSheetExtract.extract('style','css!less'),
-        exclude:  /node_modules/
-      },
-      {
-        test: /\.js$/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: [
+              ['es2015', { loose: true, modules: false }],
+              'react'
+            ]
+          }
+        },
         exclude: /node_modules/,
-        loader: 'babel',
-        query: {
-          presets: ['es2015']
-        }
+        test: /.jsx?$/
       },
       {
-        test: /.jsx?$/,
-        loader: 'babel',
-        exclude: /node_modules/,
-        query: {
-          presets: ['es2015', 'react']
-        }
+        test: /\.less|\.css$/,
+        use: StyleSheetExtract.extract({
+          use: [{
+            loader: 'css-loader'
+          }, {
+            loader: 'less-loader'
+          }],
+          // use style-loader in development
+          fallback: 'style-loader'
+        })
       },
       {
-        test: /\.(eot|svg|ttf|woff|woff2)/,
-        loader: 'file-loader',
-        query: {
-          name: '[name].[ext]'
-        }
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]'
+            }
+          }
+        ],
+        test: /\.(eot|svg|ttf|woff|woff2)/
       }
-    ],
+    ]
   },
   resolve: {
-    root: [
-      path.join(__dirname, '..', 'node_modules')
-    ]
+    modules: [__dirname, 'node_modules']
   }
 };

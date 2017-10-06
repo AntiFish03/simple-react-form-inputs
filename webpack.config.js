@@ -13,22 +13,25 @@ module.exports = {
   },
   externals: {
     react: 'react',
-    classnames: 'classnames'
+    classnames: 'classnames',
+    lodash: 'lodash'
   },
   module: {
-    loaders: [
+    rules: [
       {
-        test: /.jsx?$/,
-        loader: 'babel-loader',
-        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['es2015', 'react']
+          }
+        },
         include: path.join(__dirname, 'src'),
-        query: {
-          presets: ['es2015', 'react']
-        }
+        exclude: /node_modules/,
+        test: /.jsx?$/
       }
     ]
   },
   resolve: {
-    extensions: ['', '.js', '.jsx']
+    extensions: ['.js', '.jsx']
   }
 };
