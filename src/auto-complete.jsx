@@ -88,7 +88,7 @@ class AutoComplete extends SimpleInput {
 
     if (suggestions.length > 0 && fieldFocused) {
       return (
-        <ul ref="suggestions" className={classnames('dropdown-menu', 'col-xs-12')}>
+        <ul ref={node => this.suggestionsList = node} className={classnames('dropdown-menu', 'col-xs-12')}>
           {suggestions.map((item, i) => (
             <li
               key={i}
@@ -149,7 +149,7 @@ class AutoComplete extends SimpleInput {
         this.setState( prevState => ({
           cursor: prevState.cursor - 1
         }));
-        this.refs.suggestions.scrollTop -= this.refs.suggestions.childNodes[this.state.cursor].scrollHeight;
+        this.suggestionsList.scrollTop -= this.suggestionsList.childNodes[this.state.cursor].scrollHeight;
       }
       break;
     case 40: // Down
@@ -158,7 +158,7 @@ class AutoComplete extends SimpleInput {
           cursor: prevState.cursor + 1
         }));
 
-        this.refs.suggestions.scrollTop += this.refs.suggestions.childNodes[this.state.cursor].scrollHeight;
+        this.suggestionsList.scrollTop += this.suggestionsList.childNodes[this.state.cursor].scrollHeight;
       }
       break;
 
