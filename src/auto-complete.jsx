@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import SimpleInput from './simple-input';
-import _ from 'lodash';
+import debounce from 'lodash/debounce';
 import classnames from 'classnames';
 
 class AutoComplete extends SimpleInput {
@@ -12,7 +12,7 @@ class AutoComplete extends SimpleInput {
       suggestions
     } = props;
 
-    this.state = _.merge({},this.state, {
+    this.state = Object.assign({},this.state, {
       suggestions,
       cursor: 0
     });
@@ -20,7 +20,7 @@ class AutoComplete extends SimpleInput {
     this.handleSuggestionClick = this.handleSuggestionClick.bind(this);
 
     this.onBlur = this.onBlur.bind(this);
-    this.onBlur = _.debounce(this.onBlur, 200);
+    this.onBlur = debounce(this.onBlur, 200);
     this.onFocus = this.onFocus.bind(this);
   }
 
@@ -174,7 +174,7 @@ class AutoComplete extends SimpleInput {
   }
 }
 
-AutoComplete.propTypes = _.merge({}, SimpleInput.propTypes, {
+AutoComplete.propTypes = Object.assign({}, SimpleInput.propTypes, {
   suggestions: PropTypes.array.isRequired,
   inputType: PropTypes.oneOf(['text']).isRequired,
   fieldFocused: PropTypes.bool,
@@ -182,7 +182,7 @@ AutoComplete.propTypes = _.merge({}, SimpleInput.propTypes, {
   dropDownOpenClass: PropTypes.string
 });
 
-AutoComplete.defaultProps = _.merge({}, SimpleInput.defaultProps, {
+AutoComplete.defaultProps = Object.assign({}, SimpleInput.defaultProps, {
   suggestions: [],
   inputType: 'text',
   fieldFocused: false,

@@ -13,7 +13,8 @@ module.exports = {
   },
   externals: {
     react: 'react',
-    classnames: 'classnames'
+    classnames: 'classnames',
+    lodash: 'lodash'
   },
   module: {
     loaders: [
