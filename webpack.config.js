@@ -14,7 +14,8 @@ module.exports = {
   externals: {
     react: 'react',
     classnames: 'classnames',
-    lodash: 'lodash'
+    'lodash.debounce': 'lodash.debounce',
+    'prop-types': 'prop-types'
   },
   module: {
     loaders: [

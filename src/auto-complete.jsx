@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import SimpleInput from './simple-input';
-import debounce from 'lodash/debounce';
+import debounce from 'lodash.debounce';
 import classnames from 'classnames';
 
 class AutoComplete extends SimpleInput {
