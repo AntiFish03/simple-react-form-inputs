@@ -107,20 +107,20 @@ class AutoComplete extends SimpleInput {
       ) : ( {icon} );
   }
 
-  onFocus(...args) {
+  onFocus(evt) {
     this.onBlur.cancel();
     this.setState(prevState => Object.assign({}, prevState, {fieldFocused: true}));
 
     if (typeof(this.props.onFocus) === 'function') {
-      this.props.onFocus(...args);
+      this.props.onFocus(evt);
     }
   }
 
-  onBlur(...args) {
+  onBlur(evt) {
     this.setState(prevState => Object.assign({}, prevState, {fieldFocused: false}));
 
     if (typeof(this.props.onBlur) === 'function') {
-      this.props.onBlur(...args);
+      this.props.onBlur(evt);
     }
   }
 

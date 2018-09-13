@@ -74,8 +74,8 @@ class SimpleInput extends Component {
         value={content}
         onChange={this.updateControlFunc}
         placeholder={placeholder}
-        onFocus={this.onFocus}
-        onBlur={this.onBlur}
+        onFocus={(e) => { e.persist(); this.onFocus(e); }}
+        onBlur={(e) => { e.persist(); this.onBlur(e); }}
         onKeyDown={this.onKeyDown}
         autoComplete={autocomplete}
         { ...dataProps }
@@ -138,14 +138,14 @@ class SimpleInput extends Component {
     this.setState({content: evt.target.value});
   }
 
-  onFocus(...args) {
+  onFocus(evt) {
     if (typeof(this.props.onFocus) === 'function') {
-      this.props.onFocus(...args);
+      this.props.onFocus(evt);
     }
   }
-  onBlur(...args) {
+  onBlur(evt) {
     if (typeof(this.props.onBlur) === 'function') {
-      this.props.onBlur(...args);
+      this.props.onBlur(evt);
     }
   }
   onKeyDown() {}
