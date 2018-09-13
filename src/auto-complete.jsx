@@ -77,12 +77,6 @@ class AutoComplete extends SimpleInput {
     } = this.state;
 
     const {
-      categoryIconMapping,
-      iconClassPrefix,
-      defaultSuggestionIcon
-    } = this.props;
-
-    const {
       handleSuggestionClick
     } = this;
 
@@ -95,18 +89,7 @@ class AutoComplete extends SimpleInput {
               onClick={handleSuggestionClick.bind(null, item)}
               className={classnames({active: i === cursor })}
             >
-              {Object.keys(categoryIconMapping).includes(item.category) && (
-                <i className={
-                  classnames(iconClassPrefix,categoryIconMapping[item.category])
-                } />
-              )}
-
-              {!Object.keys(categoryIconMapping).includes(item.category) && (
-                <i className={
-                  classnames(iconClassPrefix, defaultSuggestionIcon)
-                } />
-              )}
-
+              {this.suggestionIcon()}
               {item.title}
             </li>
           ))}
@@ -115,13 +98,30 @@ class AutoComplete extends SimpleInput {
     }
   }
 
-  onFocus() {
-    this.onBlur.cancel();
-    this.setState({fieldFocused: true});
+  suggestionIcon(category) {
+    const icon = Object.keys(this.props.categoryIconMapping).includes(category) ?
+      this.props.categoryIconMapping[category] : this.props.defaultSuggestionIcon;
+
+    return typeof(icon) === 'string' ? (
+        <i className={classnames(this.props.iconClassPrefix, icon)} />
+      ) : ( {icon} );
   }
 
-  onBlur() {
-    this.setState({fieldFocused: false});
+  onFocus(...args) {
+    this.onBlur.cancel();
+    this.setState(prevState => Object.assign({}, prevState, {fieldFocused: true}));
+
+    if (typeof(this.props.onFocus) === 'function') {
+      this.props.onFocus(...args);
+    }
+  }
+
+  onBlur(...args) {
+    this.setState(prevState => Object.assign({}, prevState, {fieldFocused: false}));
+
+    if (typeof(this.props.onBlur) === 'function') {
+      this.props.onBlur(...args);
+    }
   }
 
   handleSuggestionClick(item) {
@@ -179,7 +179,11 @@ AutoComplete.propTypes = Object.assign({}, SimpleInput.propTypes, {
   inputType: PropTypes.oneOf(['text']).isRequired,
   fieldFocused: PropTypes.bool,
   menuOpen: PropTypes.bool,
-  dropDownOpenClass: PropTypes.string
+  dropDownOpenClass: PropTypes.string,
+  defaultSuggestionIcon: PropTypes.oneOfType([
+    PropTypes.string, PropTypes.node
+  ]),
+  categoryIconMapping: PropTypes.object
 });
 
 AutoComplete.defaultProps = Object.assign({}, SimpleInput.defaultProps, {

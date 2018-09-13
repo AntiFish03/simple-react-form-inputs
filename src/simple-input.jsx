@@ -138,8 +138,16 @@ class SimpleInput extends Component {
     this.setState({content: evt.target.value});
   }
 
-  onFocus() {}
-  onBlur() {}
+  onFocus(...args) {
+    if (typeof(this.props.onFocus) === 'function') {
+      this.props.onFocus(...args);
+    }
+  }
+  onBlur(...args) {
+    if (typeof(this.props.onBlur) === 'function') {
+      this.props.onBlur(...args);
+    }
+  }
   onKeyDown() {}
 }
 
@@ -190,7 +198,9 @@ SimpleInput.propTypes = {
   iconClassPrefix: PropTypes.string,
   id: PropTypes.string,
   autocomplete: PropTypes.oneOf(['on', 'off']),
-  dataProps: PropTypes.object
+  dataProps: PropTypes.object,
+  onFocus: PropTypes.func,
+  onBlur: PropTypes.func
 };
 
 SimpleInput.defaultProps = {

@@ -208,6 +208,8 @@ storiesOf('Simple Input', module)
             name="input-name"
             controlFunc={action('change')}
             content=""
+            onFocus={action('focus')}
+            onBlur={action('blur')}
           />
         </div>
       </div>
@@ -226,6 +228,8 @@ storiesOf('Simple Input', module)
             controlFunc={action('change')}
             content=""
             iconDecorator="fa-search"
+            onFocus={action('focus')}
+            onBlur={action('blur')}
           />
         </div>
       </div>
@@ -245,6 +249,8 @@ storiesOf('Simple Input', module)
             content=""
             iconDecorator="fa-search"
             iconPosition="right"
+            onFocus={action('focus')}
+            onBlur={action('blur')}
           />
         </div>
       </div>
@@ -263,6 +269,8 @@ storiesOf('Simple Input', module)
             controlFunc={action('change')}
             content=""
             iconDecorator={(<i className="fa fa-search" />)}
+            onFocus={action('focus')}
+            onBlur={action('blur')}
           />
         </div>
       </div>
@@ -282,6 +290,8 @@ storiesOf('Simple Input', module)
             content=""
             iconDecorator={(<i className="fa fa-search" />)}
             iconPosition="right"
+            onFocus={action('focus')}
+            onBlur={action('blur')}
           />
         </div>
       </div>
@@ -300,6 +310,8 @@ storiesOf('Simple Input', module)
             content=""
             iconDecorator="glyphicon-search"
             iconClassPrefix="glyphicon"
+            onFocus={action('focus')}
+            onBlur={action('blur')}
           />
         </div>
       </div>
@@ -318,6 +330,8 @@ storiesOf('Simple Input', module)
             content=""
             placeholder="Enter search terms or product #"
             iconDecorator="fa-search"
+            onFocus={action('focus')}
+            onBlur={action('blur')}
           />
         </div>
       </div>
@@ -338,6 +352,8 @@ storiesOf('Simple Input', module)
             name="input-name"
             controlFunc={action('change')}
             content=""
+            onFocus={action('focus')}
+            onBlur={action('blur')}
           />
         </div>
       </div>
@@ -358,6 +374,8 @@ storiesOf('Simple Input', module)
             name="input-name"
             controlFunc={action('change')}
             content=""
+            onFocus={action('focus')}
+            onBlur={action('blur')}
           />
         </div>
       </div>
@@ -379,6 +397,8 @@ storiesOf('Simple Input', module)
             wrapperClasses={'has-error'}
             labelClasses={['control-label']}
             fieldClasses={{error: (errors.length > 0)}}
+            onFocus={action('focus')}
+            onBlur={action('blur')}
           />
           <SimpleInput
             inputType="text"
@@ -389,6 +409,8 @@ storiesOf('Simple Input', module)
             wrapperClasses={'has-warning'}
             labelClasses={['control-label']}
             fieldClasses={{warning: true}}
+            onFocus={action('focus')}
+            onBlur={action('blur')}
           />
           <SimpleInput
             inputType="text"
@@ -400,6 +422,8 @@ storiesOf('Simple Input', module)
             labelClasses={['control-label']}
             iconDecorator={(<i className="fa fa-check" style={{color: '#3c763d'}} />)}
             iconPosition="right"
+            onFocus={action('focus')}
+            onBlur={action('blur')}
           />
         </div>
       </div>
@@ -420,6 +444,8 @@ storiesOf('Simple Input', module)
             controlFunc={action('change')}
             content=""
             id="hello-world"
+            onFocus={action('focus')}
+            onBlur={action('blur')}
           />
         </div>
       </div>
@@ -440,6 +466,8 @@ storiesOf('Simple Input', module)
             dataProps={ {
               'data-position': 'top'
             } }
+            onFocus={action('focus')}
+            onBlur={action('blur')}
           />
         </div>
       </div>
@@ -556,8 +584,6 @@ storiesOf('Select', module)
     ),
     {inline: true}
   );
-
-
 
 storiesOf('Multi Select', module)
   .addWithInfo('default',
@@ -720,6 +746,8 @@ storiesOf('Auto Complete', module)
             controlFunc={action('change')}
             content=""
             suggestions={[]}
+            onFocus={action('focus')}
+            onBlur={action('blur')}
           />
         </div>
       </div>
@@ -738,6 +766,8 @@ storiesOf('Auto Complete', module)
             controlFunc={action('change')}
             content=""
             suggestions={autoCompleteOptions}
+            onFocus={action('focus')}
+            onBlur={action('blur')}
           />
         </div>
       </div>
@@ -763,6 +793,8 @@ storiesOf('Auto Complete', module)
             }}
             defaultSuggestionIcon="glyphicon-pawn"
             iconClassPrefix="glyphicon"
+            onFocus={action('focus')}
+            onBlur={action('blur')}
           />
         </div>
       </div>
