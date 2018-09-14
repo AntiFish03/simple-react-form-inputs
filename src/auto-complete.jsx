@@ -4,6 +4,7 @@ import SimpleInput from './simple-input';
 import debounce from 'lodash.debounce';
 import classnames from 'classnames';
 
+/** @extends React.PureComponent */
 class AutoComplete extends SimpleInput {
   constructor(props) {
     super(props);
@@ -26,15 +27,6 @@ class AutoComplete extends SimpleInput {
 
   componentWillUnmount() {
     this.onBlur.cancel();
-  }
-
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.suggestions !== this.state.suggestions) {
-      this.setState({
-        suggestions: nextProps.suggestions,
-        cursor: 0
-      });
-    }
   }
 
   render() {

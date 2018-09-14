@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import generateUUID from './utils/generate-uuid';
 
-class TextArea extends Component {
+class TextArea extends PureComponent {
   constructor(props) {
     super(props);
 
