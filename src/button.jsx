@@ -18,6 +18,18 @@ class Button extends PureComponent {
     };
   }
 
+  componentDidUpdate(prevProps) {
+    if (
+      this.props.fieldClasses !== prevProps.fieldClasses ||
+      this.props.wrapperClasses !== prevProps.wrapperClasses
+    ) {
+      this.setState( prevState => Object.assign({}, prevState, {
+        ...this.props.fieldClasses !== prevProps.fieldClasses && { fieldClassName: classnames('form-control', this.props.fieldClasses) },
+        ...this.props.wrapperClasses !== prevProps.wrapperClasses && { wrapperClassName: classnames('form-group', this.props.wrapperClasses) }
+      }) );
+    }
+  }
+
   render() {
     const {
       wrapperClassName,

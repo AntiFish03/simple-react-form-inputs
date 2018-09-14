@@ -28,6 +28,20 @@ class MultiSelect extends PureComponent {
     this.updateControlFunc = this.updateControlFunc.bind(this);
   }
 
+  componentDidUpdate(prevProps) {
+    if (
+      this.props.fieldClasses !== prevProps.fieldClasses ||
+      this.props.labelClasses !== prevProps.labelClasses ||
+      this.props.wrapperClasses !== prevProps.wrapperClasses
+    ) {
+      this.setState( prevState => Object.assign({}, prevState, {
+        ...this.props.fieldClasses !== prevProps.fieldClasses && { fieldClassName: classnames('form-control', this.props.fieldClasses) },
+        ...this.props.labelClasses !== prevProps.labelClasses && { labelClassName: classnames('form-control-label', this.props.labelClasses) },
+        ...this.props.wrapperClasses !== prevProps.wrapperClasses && { wrapperClassName: classnames('form-group', this.props.wrapperClasses) }
+      }) );
+    }
+  }
+
   render() {
     const {
       wrapperClassName

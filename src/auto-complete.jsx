@@ -29,6 +29,18 @@ class AutoComplete extends SimpleInput {
     this.onBlur.cancel();
   }
 
+  componentDidUpdate(prevProps) {
+    super.componentDidUpdate(prevProps);
+
+    if ( this.props.suggestions !== prevProps.suggestions || this.props.fieldFocused !== prevProps.fieldFocused) {
+      this.setState( prevState => Object.assign({}, prevState, {
+        ...this.props.suggestions !== prevProps.suggestions && { suggestions: this.props.suggestions },
+        ...this.props.fieldFocused !== prevProps.fieldFocused && { fieldFocused: this.props.fieldFocused },
+      }) );
+    }
+
+  }
+
   render() {
     const {
       id,
