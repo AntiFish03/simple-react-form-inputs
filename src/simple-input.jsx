@@ -33,12 +33,14 @@ class SimpleInput extends PureComponent {
     if (
       this.props.fieldClasses !== prevProps.fieldClasses ||
       this.props.labelClasses !== prevProps.labelClasses ||
-      this.props.wrapperClasses !== prevProps.wrapperClasses
+      this.props.wrapperClasses !== prevProps.wrapperClasses ||
+      (this.props.content !== prevProps.content && this.props.content !== this.state.content)
     ) {
       this.setState( prevState => Object.assign({}, prevState, {
         ...this.props.fieldClasses !== prevProps.fieldClasses && { fieldClassName: classnames('form-control', this.props.fieldClasses) },
         ...this.props.labelClasses !== prevProps.labelClasses && { labelClassName: classnames('form-control-label', this.props.labelClasses) },
-        ...this.props.wrapperClasses !== prevProps.wrapperClasses && { wrapperClassName: classnames('form-group', this.props.wrapperClasses) }
+        ...this.props.wrapperClasses !== prevProps.wrapperClasses && { wrapperClassName: classnames('form-group', this.props.wrapperClasses) },
+        ...(this.props.content !== prevProps.content && this.props.content !== this.state.content) && { content: this.props.content }
       }) );
     }
   }

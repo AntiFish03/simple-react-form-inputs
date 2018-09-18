@@ -32,12 +32,14 @@ class Select extends PureComponent {
     if (
       this.props.fieldClasses !== prevProps.fieldClasses ||
       this.props.labelClasses !== prevProps.labelClasses ||
-      this.props.wrapperClasses !== prevProps.wrapperClasses
+      this.props.wrapperClasses !== prevProps.wrapperClasses ||
+      (this.props.selectedOption !== prevProps.selectedOption && this.props.selectedOption !== this.state.selectedOption)
     ) {
       this.setState( prevState => Object.assign({}, prevState, {
         ...this.props.fieldClasses !== prevProps.fieldClasses && { fieldClassName: classnames('form-control', this.props.fieldClasses) },
         ...this.props.labelClasses !== prevProps.labelClasses && { labelClassName: classnames('form-control-label', this.props.labelClasses) },
-        ...this.props.wrapperClasses !== prevProps.wrapperClasses && { wrapperClassName: classnames('form-group', this.props.wrapperClasses) }
+        ...this.props.wrapperClasses !== prevProps.wrapperClasses && { wrapperClassName: classnames('form-group', this.props.wrapperClasses) },
+        ...(this.props.selectedOption !== prevProps.selectedOption && this.props.selectedOption !== this.state.selectedOption) && { selectedOption: this.props.selectedOption }
       }) );
     }
   }
