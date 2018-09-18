@@ -73,6 +73,10 @@ class Select extends PureComponent {
     controlFunc(rtn);
 
     this.setState({selectedOption: evt.target.value});
+
+    if (typeof(this.props.onChange) === 'function') {
+      this.props.onChange(evt);
+    }
   }
 
   generateTitle() {
@@ -220,7 +224,8 @@ Select.propTypes = {
     PropTypes.node
   ]),
   iconClassPrefix: PropTypes.string,
-  dataProps: PropTypes.object
+  dataProps: PropTypes.object,
+  onChange: PropTypes.func
 };
 
 Select.defaultProps = {
