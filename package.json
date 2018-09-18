@@ -1,6 +1,6 @@
 {
   "name": "simple-react-form-inputs",
-  "version": "1.1.8",
+  "version": "1.1.9",
   "description": "Simple React form inputs using bootstrap support classes",
   "main": "dist/simple-react-form-inputs.js",
   "repository": "git@github.com:AntiFish03/simple-react-form-inputs.git",

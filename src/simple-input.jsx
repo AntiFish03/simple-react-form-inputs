@@ -87,7 +87,7 @@ class SimpleInput extends PureComponent {
         name={name}
         type={inputType}
         value={content}
-        onChange={this.updateControlFunc}
+        onChange={(e) => { e.persist(); this.updateControlFunc(e); }}
         placeholder={placeholder}
         onFocus={(e) => { e.persist(); this.onFocus(e); }}
         onBlur={(e) => { e.persist(); this.onBlur(e); }}
@@ -141,6 +141,10 @@ class SimpleInput extends PureComponent {
   }
 
   updateControlFunc(evt) {
+    if (typeof(this.props.onChange) === 'function') {
+      this.props.onChange(evt);
+    }
+
     const {
       name,
       controlFunc
@@ -215,7 +219,8 @@ SimpleInput.propTypes = {
   autocomplete: PropTypes.oneOf(['on', 'off']),
   dataProps: PropTypes.object,
   onFocus: PropTypes.func,
-  onBlur: PropTypes.func
+  onBlur: PropTypes.func,
+  onChange: PropTypes.func
 };
 
 SimpleInput.defaultProps = {

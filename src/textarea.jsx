@@ -24,6 +24,8 @@ class TextArea extends PureComponent {
     };
 
     this.updateControlFunc = this.updateControlFunc.bind(this);
+    this.onBlur = this.onBlur.bind(this);
+    this.onFocus = this.onFocus.bind(this);
   }
 
   componentDidUpdate(prevProps) {
@@ -70,6 +72,8 @@ class TextArea extends PureComponent {
           name={name}
           onChange={this.updateControlFunc}
           value={content}
+          onFocus={this.onFocus}
+          onBlur={this.onBlur}
           {...dataProps}
         />
       </div>
@@ -99,6 +103,10 @@ class TextArea extends PureComponent {
   }
 
   updateControlFunc(evt) {
+    if (typeof(this.props.onChange) === 'function') {
+      this.props.onChange(evt);
+    }
+
     const {
       name,
       controlFunc
@@ -109,6 +117,17 @@ class TextArea extends PureComponent {
     controlFunc(rtn);
 
     this.setState({content: evt.target.value});
+  }
+
+  onFocus(evt) {
+    if (typeof(this.props.onFocus) === 'function') {
+      this.props.onFocus(evt);
+    }
+  }
+  onBlur(evt) {
+    if (typeof(this.props.onBlur) === 'function') {
+      this.props.onBlur(evt);
+    }
   }
 }
 
@@ -142,7 +161,10 @@ TextArea.propTypes = {
     PropTypes.string
   ]),
   id: PropTypes.string,
-  dataProps: PropTypes.object
+  dataProps: PropTypes.object,
+  onFocus: PropTypes.func,
+  onBlur: PropTypes.func,
+  onChange: PropTypes.func
 };
 
 TextArea.defaultProps = {

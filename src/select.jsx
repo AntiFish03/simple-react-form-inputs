@@ -63,6 +63,10 @@ class Select extends PureComponent {
   }
 
   updateControlFunc(evt) {
+    if (typeof(this.props.onChange) === 'function') {
+      this.props.onChange(evt);
+    }
+
     const {
       name,
       controlFunc
@@ -73,10 +77,6 @@ class Select extends PureComponent {
     controlFunc(rtn);
 
     this.setState({selectedOption: evt.target.value});
-
-    if (typeof(this.props.onChange) === 'function') {
-      this.props.onChange(evt);
-    }
   }
 
   generateTitle() {
@@ -122,6 +122,8 @@ class Select extends PureComponent {
       name={name}
       value={selectedOption}
       onChange={this.updateControlFunc}
+      onBlur={this.onBlur}
+      onFocus={this.onFocus}
       className={fieldClassName}
       {...dataProps}
       >
@@ -178,6 +180,17 @@ class Select extends PureComponent {
       );
     }
   }
+
+  onFocus(evt) {
+    if (typeof(this.props.onFocus) === 'function') {
+      this.props.onFocus(evt);
+    }
+  }
+  onBlur(evt) {
+    if (typeof(this.props.onBlur) === 'function') {
+      this.props.onBlur(evt);
+    }
+  }
 }
 
 Select.propTypes = {
@@ -225,6 +238,8 @@ Select.propTypes = {
   ]),
   iconClassPrefix: PropTypes.string,
   dataProps: PropTypes.object,
+  onFocus: PropTypes.func,
+  onBlur: PropTypes.func,
   onChange: PropTypes.func
 };
 
