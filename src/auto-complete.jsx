@@ -69,6 +69,7 @@ class AutoComplete extends SimpleInput {
           {this.generateInput()}
           {this.generateSuggestions()}
         </div>
+        {this.props.helpBlock}
       </div>
     );
   }

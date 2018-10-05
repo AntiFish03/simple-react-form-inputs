@@ -1,6 +1,6 @@
 {
   "name": "simple-react-form-inputs",
-  "version": "1.1.10",
+  "version": "1.1.11",
   "description": "Simple React form inputs using bootstrap support classes",
   "main": "dist/simple-react-form-inputs.js",
   "repository": "git@github.com:AntiFish03/simple-react-form-inputs.git",
@@ -42,7 +42,8 @@
     "build-storybook": "build-storybook",
     "build": "webpack",
     "prepublish": "npm run build",
-    "postpublish": "storybook-to-ghpages"
+    "postpublish": "storybook-to-ghpages",
+    "prepare": "npm run build"
   },
   "peerDependencies": {
     "bootstrap": "*",

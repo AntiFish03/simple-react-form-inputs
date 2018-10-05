@@ -78,6 +78,7 @@ class TextArea extends PureComponent {
           onBlur={this.onBlur}
           {...dataProps}
         />
+        {this.props.helpBlock}
       </div>
     );
   }
@@ -166,12 +167,17 @@ TextArea.propTypes = {
   dataProps: PropTypes.object,
   onFocus: PropTypes.func,
   onBlur: PropTypes.func,
-  onChange: PropTypes.func
+  onChange: PropTypes.func,
+  helpBlock: PropTypes.oneOfType([
+    PropTypes.node,
+    PropTypes.string
+  ])
 };
 
 TextArea.defaultProps = {
   content: '',
-  dataProps: {}
+  dataProps: {},
+  helpBlock: ''
 };
 
 export default TextArea;

@@ -26,6 +26,8 @@ class Select extends PureComponent {
     };
 
     this.updateControlFunc = this.updateControlFunc.bind(this);
+    this.onFocus = this.onFocus.bind(this);
+    this.onBlur = this.onBlur.bind(this);
   }
 
   componentDidUpdate(prevProps) {
@@ -60,6 +62,7 @@ class Select extends PureComponent {
           {this.generateTitle()}
         </label>
         {this.generateField()}
+        {this.props.helpBlock}
       </div>
     );
   }
@@ -242,7 +245,11 @@ Select.propTypes = {
   dataProps: PropTypes.object,
   onFocus: PropTypes.func,
   onBlur: PropTypes.func,
-  onChange: PropTypes.func
+  onChange: PropTypes.func,
+  helpBlock: PropTypes.oneOfType([
+    PropTypes.node,
+    PropTypes.string
+  ])
 };
 
 Select.defaultProps = {
@@ -251,7 +258,8 @@ Select.defaultProps = {
   iconPosition: 'left',
   iconDecorator: null,
   iconClassPrefix: 'fa',
-  dataProps: {}
+  dataProps: {},
+  helpBlock: ''
 };
 
 export default Select;

@@ -61,6 +61,7 @@ class SimpleInput extends PureComponent {
           {this.generateTitle()}
         </label>
         {this.generateInput()}
+        {this.props.helpBlock}
       </div>
     );
   }
@@ -222,7 +223,11 @@ SimpleInput.propTypes = {
   dataProps: PropTypes.object,
   onFocus: PropTypes.func,
   onBlur: PropTypes.func,
-  onChange: PropTypes.func
+  onChange: PropTypes.func,
+  helpBlock: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.node
+  ])
 };
 
 SimpleInput.defaultProps = {
@@ -234,7 +239,8 @@ SimpleInput.defaultProps = {
   titleMessage: null,
   titleSeparator: ': ',
   autocomplete: 'on',
-  dataProps: {}
+  dataProps: {},
+  helpBlock: ''
 };
 
 export default SimpleInput;
