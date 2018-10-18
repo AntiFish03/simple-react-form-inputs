@@ -94,7 +94,7 @@ class AutoComplete extends SimpleInput {
               onClick={handleSuggestionClick.bind(null, item)}
               className={classnames({active: i === cursor })}
             >
-              {this.suggestionIcon()}
+              {this.suggestionIcon(item.category)}
               {item.title}
             </li>
           ))}
@@ -109,7 +109,7 @@ class AutoComplete extends SimpleInput {
 
     return typeof(icon) === 'string' ? (
         <i className={classnames(this.props.iconClassPrefix, icon)} />
-      ) : ( {icon} );
+      ) : icon;
   }
 
   onFocus(evt) {
